@@ -1,0 +1,85 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             program1, code,readonly
+    2 00000000         
+    3 00000000         main
+    4 00000000 E3A00000        mov              r0,#0
+    5 00000004 E3A01001        mov              r1,#1
+    6 00000008 E3A02002        mov              r2,#2
+    7 0000000C E3A03003        mov              r3,#3
+    8 00000010 E3A04004        mov              r4,#4
+    9 00000014 E3A05005        mov              r5,#5
+   10 00000018 E3A06006        mov              r6,#6
+   11 0000001C E3A07007        mov              r7,#7       ; store value in ea
+                                                            ch register
+   12 00000020         
+   13 00000020 E59FD010        LDR              sp, tempaddr1 ; decide stack po
+                                                            inter
+   14 00000024         
+   15 00000024 E8AD00FF        stmea            sp!, {r0-r7} ; store each regis
+                                                            ter in stack using
+   16 00000028         ; Empty ascending
+   17 00000028         ;update
+   18 00000028 E93D0038        ldmea            sp!, {r3-r5}
+   19 0000002C E93D0085        ldmea            sp!, {r7,r2,r0}
+   20 00000030 E93D0042        ldmea            sp!, {r6,r1}
+   21 00000034         ; load each register from stack to new register
+   22 00000034         ; using empty ascending
+   23 00000034         
+   24 00000034 E1A0F00E        mov              pc,lr
+   25 00000038         
+   26 00000038 00040000 
+                       tempaddr1
+                               DCD              0x00040000
+   27 0000003C         
+   28 0000003C         end
+   29 0000003C         
+                       
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\program1.d -o.\objects\program1.o -IC:\Keil_v5\ARM\RV31\INC 
+-IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISI
+ON_VERSION SETA 524" --list=.\listings\program1.lst program1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+end 0000003C
+
+Symbol: end
+   Definitions
+      At line 28 in file program1.s
+   Uses
+      None
+Comment: end unused
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 3 in file program1.s
+   Uses
+      None
+Comment: main unused
+program1 00000000
+
+Symbol: program1
+   Definitions
+      At line 1 in file program1.s
+   Uses
+      None
+Comment: program1 unused
+tempaddr1 00000038
+
+Symbol: tempaddr1
+   Definitions
+      At line 26 in file program1.s
+   Uses
+      At line 13 in file program1.s
+Comment: tempaddr1 used once
+4 symbols
+336 symbols in table
