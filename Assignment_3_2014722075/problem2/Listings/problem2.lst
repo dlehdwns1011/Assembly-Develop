@@ -1,0 +1,130 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             problem2, code, readonly
+    2 00000000         
+    3 00000000         main
+    4 00000000         
+    5 00000000 E59F00A4        ldr              r0, =value1 ;insert values
+    6 00000004 E59FB09C        ldr              r11, address1 ;load address
+    7 00000008         
+    8 00000008 E490C004        ldr              r12, [r0], #4
+    9 0000000C E1A0100C        mov              r1,r12
+   10 00000010 E48B1004        str              r1,[r11], #4
+   11 00000014         
+   12 00000014 E490C004        ldr              r12, [r0], #4
+   13 00000018 E002019C        mul              r2, r12, r1 ;2!
+   14 0000001C E48B2004        str              r2,[r11], #4 ;store value
+   15 00000020         
+   16 00000020 E490C004        ldr              r12, [r0], #4
+   17 00000024 E003029C        mul              r3, r12, r2 ;3!
+   18 00000028 E48B3004        str              r3,[r11], #4 ;store value
+   19 0000002C         
+   20 0000002C E490C004        ldr              r12, [r0], #4
+   21 00000030 E004039C        mul              r4, r12, r3 ;4!
+   22 00000034 E48B4004        str              r4,[r11], #4 ;store value
+   23 00000038         
+   24 00000038 E490C004        ldr              r12, [r0], #4
+   25 0000003C E005049C        mul              r5, r12, r4 ;5!
+   26 00000040 E48B5004        str              r5,[r11], #4 ;store value
+   27 00000044         
+   28 00000044 E490C004        ldr              r12, [r0], #4
+   29 00000048 E006059C        mul              r6, r12, r5 ;6!
+   30 0000004C E48B6004        str              r6,[r11], #4 ;store value
+   31 00000050         
+   32 00000050 E490C004        ldr              r12, [r0], #4
+   33 00000054 E007069C        mul              r7, r12, r6 ;7!
+   34 00000058 E48B7004        str              r7,[r11], #4 ;store value
+   35 0000005C         
+   36 0000005C E490C004        ldr              r12, [r0], #4
+   37 00000060 E008079C        mul              r8, r12, r7 ;8!
+   38 00000064 E48B8004        str              r8,[r11], #4 ;store value
+   39 00000068         
+   40 00000068 E490C004        ldr              r12, [r0], #4
+   41 0000006C E009089C        mul              r9, r12, r8 ;9!
+   42 00000070 E48B9004        str              r9,[r11], #4 ;store value
+   43 00000074         
+   44 00000074 E490C004        ldr              r12, [r0], #4
+   45 00000078 E00A099C        mul              r10, r12, r9 ;10!
+   46 0000007C E48BA004        str              r10,[r11], #4 ;store value
+   47 00000080         
+   48 00000080         
+   49 00000080 00000001 
+              00000002 
+              00000003 
+              00000004 
+              00000005 
+              00000006 
+              00000007 
+              00000008 
+              00000009 
+              0000000A value1  DCD              1,2,3,4,5,6,7,8,9,10
+   50 000000A8 00040000 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                       address1
+                               DCD              0x40000
+   51 000000AC         
+   52 000000AC         end
+   53 000000AC         
+                       
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\problem2.d -o.\objects\problem2.o -IC:\Keil_v5\ARM\RV31\INC 
+-IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISI
+ON_VERSION SETA 524" --list=.\listings\problem2.lst problem2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+address1 000000A8
+
+Symbol: address1
+   Definitions
+      At line 50 in file problem2.s
+   Uses
+      At line 6 in file problem2.s
+Comment: address1 used once
+end 000000AC
+
+Symbol: end
+   Definitions
+      At line 52 in file problem2.s
+   Uses
+      None
+Comment: end unused
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 3 in file problem2.s
+   Uses
+      None
+Comment: main unused
+problem2 00000000
+
+Symbol: problem2
+   Definitions
+      At line 1 in file problem2.s
+   Uses
+      None
+Comment: problem2 unused
+value1 00000080
+
+Symbol: value1
+   Definitions
+      At line 49 in file problem2.s
+   Uses
+      At line 5 in file problem2.s
+Comment: value1 used once
+5 symbols
+339 symbols in table
